@@ -15,9 +15,7 @@ JavaScript: Client-side scripting is done using JavaScript to handle events, int
 
 To run the application locally, follow these steps:
 
-Clone the repository: git clone https://github.com/swl-01/quick-draw-webapp.git
-Navigate to the project directory: cd quick-draw-webapp
-Restore the NuGet packages: dotnet restore
+Clone the repository: git clone https://github.com/SWL-01/signalRstuff.git
 Build the project: dotnet build
 Run the application: dotnet run
 Make sure you have the latest version of ASP.NET Core and the necessary dependencies installed on your machine.
