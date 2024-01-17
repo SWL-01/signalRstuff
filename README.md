@@ -1,35 +1,192 @@
-**Quick Draw Web Application with SignalR**
-This is a web application built using SignalR that allows users to participate in a real-time drawing game. Users can connect from various web environments such as Chrome, Microsoft Edge, or Firefox and communicate with each other seamlessly.
+## 🌱 Sprout
+* ⭐ [General Info](#general-info)
+* 🌿 [Team Sprout] (#Team-Sprout)
+* ⚙ [Technologies](#technologies)
+* ✏ [Design](#design)
+* 🗃 [Databases](#databases)
+* 📝[Testing](#testing)
+* 📁 [Content](#content)
+* [:running: Install Steps](#Install-steps)
 
-**Features**
-Real-time Drawing: Users can draw on the canvas and see the changes in real-time as other participants draw simultaneously.
-Multi-Platform Support: The application is compatible with popular web browsers like Chrome, Microsoft Edge, and Firefox, ensuring a wide range of accessibility for users.
-Interactive Chat: Users can engage in a chat conversation while playing the drawing game, enhancing the interactive experience.
-User Authentication: The application supports user authentication, allowing participants to create accounts and keep track of their game history.
-**Technologies Used**
-ASP.NET Core: The backend of the application is built using ASP.NET Core, providing a robust and scalable server-side framework.
-SignalR: SignalR is used to establish real-time communication between the server and clients, enabling seamless updates on the drawing canvas and chat messages.
-HTML5 Canvas: The drawing functionality is implemented using HTML5 Canvas, providing a versatile and interactive drawing surface.
-JavaScript: Client-side scripting is done using JavaScript to handle events, interact with the server, and update the user interface dynamically.
-**Getting Started**
 
-To run the application locally, follow these steps:
+## ⭐ General Info
+SPROUT connects gardeners of all ages and expertise with resources on the best native and bee-friendly plants for their local area. Users will join community teams and earn points while learning and engaging in sustainable gardening.
 
-Clone the repository: git clone https://github.com/SWL-01/signalRstuff.git
-Build the project: dotnet build
-Run the application: dotnet run
-Make sure you have the latest version of ASP.NET Core and the necessary dependencies installed on your machine.
+## 🌿 Team Sprout
+* Mike Hwang
+* Sally Poon
+* Nicholas Johnston
+* Susan Li
 
-**Contributing**
-We welcome contributions from the community to enhance this web application. To contribute, please follow these steps:
+## ⚙ Technologies
+Technologies/languages used for this project:
 
-**Fork the repository.**
-Create a new branch: git checkout -b my-feature-branch
-Make your changes and commit them: git commit -m 'Add new feature'
-Push to the branch: git push origin my-feature-branch
-Submit a pull request to the main branch.
+### VSC (Visual Studio Code)
+Visual Studio Code is a source-code editor that is compatible with a variety of programming languages, including Java, JavaScript, Go, Node.js, Python and C++.
 
-**Contact**
-If you have any questions or suggestions, feel free to contact us at siwoonlim@gmail.com.
+### JSX
+JSX allows us to render JS objects in HTML. This makes it easier to write React components and leverage props and states within the component's HTML.
 
-Happy drawing and enjoy the game!
+### React
+React is a flexible, agile, Javascript framework used to make UI Interfaces. It enables us to build small components that can display information based on props and state, which makes templating much easier. This will be advantageous for us as we will be passing around a lot of information such as plant information, user data, and images.
+
+For our implementation of React, we will be relying on React Hooks rather than the decprecated Class methods. The two Hooks we will be working with for this development will be the useState and useEffect Hooks. This will us to control our components based on dynamic variable handling, and will ensure that they retain maximum flexibility without bloat.
+
+## ✏ Design
+For containers, the design we will be using is an encompassing component surrounding a single component. This makes passing props simple and building a page much easier as it separates.
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### React State
+State is built in to React Components. Using state we can add value attributes to our components. When state is updated, the component re-renders. For example, this will be useful for Adding Sprouts in our application. 
+
+### React Component Lifecycles
+Working hand in hand with state management is the useEffect hook, which we will be using to maintain and control our component lifecycles. The useEffect hook simply executes events depending on the current state, on mounting/unmounting a component, or if a specific state is changed. Furthermore, it allows us to clean up code (like event handlers) after a function is fired off, which prevents the application from crashing!
+
+### React Bootstrap
+We borrow from the React Bootstrap library for some of our design components. More can be found here (https://react-bootstrap.github.io/)
+
+### Heroku
+Heroku is a container-based cloud platform as a service (PaaS). Heroku allows developers to deploy, manage, and extend the applications.
+
+## 🗃 Databases
+
+### Heroku PostgreSQL
+Heroku PostgreSQL is a PostgreSQL-based cloud database service. Heroku Postgres offers features such as rollback, high availability, and continuous protection, as well as followers, data clips, and forks.
+
+### Cloudinary
+We use Cloudinary to store and manage all user's image uploads. To upload an image to Cloudinary, a POST request must be made Sprout's Cloudinary with an image preset of either sproutPlant or sproutUser. You can see credentials in **Configurations**. If you would like to create more image presets please notify the github owner, Nicholas.
+
+## 📝Testing
+You can find our initial testing plan here: https://docs.google.com/spreadsheets/d/1VK1SMwL3B4feiTA7hIC6xo1Rk5iDve64pFtSdyGjAUQ/edit?usp=sharing
+
+To navitage to our test files, from the root folder go to client > tests. A map of our repo is in the **Contents** section.
+
+## 📁 Content
+The repo is organized in a fashion that abides by React structures. First, the repo is split into two sides: client and server.
+
+**Server** contains all related files to the server side of the application. This includes a file for pghelpers, the server.js, and other database-related files.
+
+**Client** contains the application's root folder, components, assets, front-end tests, and containers for the entire web app.
+
+**Containers** folder within the client folder is where you will find the pages that contain components, categorized by each page. Each folder contains 3-4 files. There should be the Page React component, the Page Container, and index.js, and a Styling .css file for each container.
+**Components** folder within the client folder is where you will find the smaller components that are used, categorized by the page it is used in. Within this folder, there is also a styles folder for each component.
+
+
+Content of the project folder:
+```
+ Top level of project folder: 
+📂 /
+├── index.js                            # Express file which statically hosts the client/build folder
+├── pgHelper.js                         # Postgres file containing the connection object to postgres, and all of our queries
+├── .gitignore                          # Git ignore file
+├── package.json                        # Metadata relevant to the project
+├── Procfile                            # Basic command for Heroku
+├── yarn.lock                           # Managing dependencies
+├── reset_alerts_every_day.js           # A JavaScript file that triggers the scheduler
+└── README.md                           # You're reading this now!
+
+It has the following subfolders and files:
+📂 /
+├── 📂 client                            # Folder for the front end
+┃    └─── 📂 src                         # Folder for the source files
+┃          ├── 📂 components             # Folder for the React components
+┃          ┃    ├── 📂 AboutUs                # Folder for the AboutUs component
+┃          ┃    ├── 📂 Alerts                 # Folder for the Alerts component
+┃          ┃    ├── 📂 Easter                 # Folder for the Easter component
+┃          ┃    ├── 📂 Layout                 # Folder for the Layout component
+┃          ┃    ├── 📂 Leaderboard            # Folder for the Leaderboard component
+┃          ┃    ├── 📂 List                   # Folder for the List component
+┃          ┃    ├── 📂 Modals                 # Folder for the Modals component
+┃          ┃    ├── 📂 PlantProfile           # Folder for the PlantProfile component
+┃          ┃    ├── 📂 Profile                # Folder for the Profile component
+┃          ┃    ├── 📂 Search                 # Folder for the Search component
+┃          ┃    └── 📂 SearchPlantDetail      # Folder for the SearchPlantDetail component
+┃          ├─── 📂 config                      # Folder for the static data
+┃          ┃    ├── 📂 assets                 # Folder for the image files used in the project
+┃          ┃    └── 📂 data                   # (AKA RESOURCES) Folder for the JSON files used in the project                
+┃          ├─── 📂 containers                  # Folder for the React containers
+┃          ┃    ├── 📂 AboutUs                # Folder for the AboutUs page
+┃          ┃    ├── 📂 Alerts                 # Folder for the Alerts page
+┃          ┃    ├── 📂 HomeContainer          # Folder for the Home page
+┃          ┃    ├── 📂 JoinTeam               # Folder for the JoinTeam page
+┃          ┃    ├── 📂 Leaderboards           # Folder for the Leaderboards page
+┃          ┃    ├── 📂 Login                  # Folder for the Login page
+┃          ┃    ├── 📂 PlantProfile           # Folder for the PlantProfile page
+┃          ┃    ├── 📂 Profile                # Folder for the Profile page
+┃          ┃    ├── 📂 Search                 # Folder for the Search page
+┃          ┃    ├── 📂 SearchPlantDetail      # Folder for the SearchPlantDetail page
+┃          ┃    └── 📂 Signup                 # Folder for the Signup page
+┃          ├─── 📂 components                  # Folder for the React components for each respective page
+┃          ┃    ├── 📂 AboutUs                # Folder for the AboutUs page
+┃          ┃    ├── 📂 Alerts                 # Folder for the Alerts page
+┃          ┃    ├── 📂 HomeContainer          # Folder for the Home page
+┃          ┃    ├── 📂 JoinTeam               # Folder for the JoinTeam page
+┃          ┃    ├── 📂 Leaderboards           # Folder for the Leaderboards page
+┃          ┃    ├── 📂 Login                  # Folder for the Login page
+┃          ┃    ├── 📂 Modals                 # Folder for shared Modals across pages
+┃          ┃    ├── 📂 PlantProfile           # Folder for the PlantProfile page
+┃          ┃    ├── 📂 Profile                # Folder for the Profile page
+┃          ┃    ├── 📂 Search                 # Folder for the Search page
+┃          ┃    ├── 📂 SearchPlantDetail      # Folder for the SearchPlantDetail page
+┃          ┃    └── 📂 Signup                 # Folder for the Signup page     
+┃          ├─── 📂 tests                      # Folder for client-side tests        
+┃          ├─── index.css                      # A CSS file for the root page
+┃          ├─── index.js                       # A JavaScript file for the root page
+┃          ├─── Splash.js                      # A JavaScript file for loading the page
+┃          ├─── package-lock.json              # Managing dependencies
+┃          ├─── package.json                   # Metadata relevant to the project
+┃          └─── yarn.lock                      # Managing dependencies
+
+
+The following folder also exists within the top-level project folder on dev, but not on main branch:
+
+└── 📂 server                            # Folder for the back end
+     ├─── 📂 data                        # Folder for the static data
+     ├─── 📂 database                    # Folder for showing how the database looks
+     ├─── package-lock.json              # Managing dependencies
+     ├─── package.json                   # Metadata relevant to the project
+     ├─── pghelper.js                    # A JavaScript file for querying from the database
+     ├─── server.js                      # A JavaScript file for connecting to the server
+     └─── yarn.lock                      # Managing dependencies
+
+```
+## Configurations
+
+### Heroku
+The Heroku account we used is Nicholas' personal account. For account details, please contact him.
+
+### Cloudinary
+Any upload to images must be a POST request to: https://api.cloudinary.com/v1_1/sprout03/image/upload/
+Username: sprout.team.3@gmail.com
+Password: BCITcomp2800!
+
+## Install Steps
+1. Clone the repository to your local device.   
+<img src="./client/src/config/assets/images/1-Cloning.png" width="100%" title="cloning" alt="cloning"></img>
+2. Open your Visual Studio Code(VSC) and open a terminal.   
+<img src="./client/src/config/assets/images/2-OpenVSC.png" width="100%" title="openVSC" alt="openVSC"></img>
+3. In the terminal, in the project's root directory, copy and paste this piece of code.
+```
+echo DATABASE_URL=postgres://sshovcjpdbiske:cfa4366c3ca29896322ecbd08a53592f6ad794280dffd387466954d7a40956f8@ec2-35-170-85-206.compute-1.amazonaws.com:5432/daama3hr9d0osj > .env
+```
+4. Type ***yarn install*** and ***yarn start*** consequently.     
+<img src="./client/src/config/assets/images/4-yarn-install.png" width="100%" title="server-yarnInstall" alt="server-yarn-install"></img>   
+<img src="./client/src/config/assets/images/5-yarn-start.png" width="100%" title="server-yarnStart" alt="server-yarn-start"></img>
+      
+    ![](https://img.shields.io/badge/Note-yellow)
+   
+   Once you run ***yarn install***, you do not need to run that again from the next time.
+5. Open another terminal by clicking ```+``` button on the top-right in the terminal.    
+<img src="./client/src/config/assets/images/6-open-another-terminal.png" width="100%" title="open-another-terminal" alt="open-another-terminal"></img>
+6. Type ***cd client***, ***yarn install***, and ***yarn start*** consequently. This will automatically install all of Sprout's dependencies on your local computer. To see a list of all these dependencies, you may read package.json.
+<img src="./client/src/config/assets/images/7-Go-to-client.png" width="100%" title="go-to-client" alt="client"></img>   
+<img src="./client/src/config/assets/images/8-yarn-install.png" width="100%" title="client-yarnInstall" alt="client-yarn-install"></img>   
+<img src="./client/src/config/assets/images/9-yarn-start.png" width="100%" title="client-yarnStart" alt="client-yarn-start"></img>
+    
+    ![](https://img.shields.io/badge/Note-yellow)
+   
+   Once you run ***yarn install***, you do not need to run that again from the next time.
+
+Then you will see the home page of Sprout!   
+<img src="./client/src/config/assets/images/10-home-page.png" width="30%" title="sprout" alt="sprout"></img>   
